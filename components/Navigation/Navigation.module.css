@@ -1,0 +1,35 @@
+.item {
+  height: 90px;
+}
+
+.link {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 110%;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.link:hover {
+  border-bottom: 3px double #fff;
+}
+
+.sign {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 110%;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sign:hover {
+  border-bottom: 3px double #fff;
+}
