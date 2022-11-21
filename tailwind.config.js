@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       margin: {
         '120': '560px',
+      },
+      spacing: {
+        '37%': '37.5%'
       }
     },
   },
