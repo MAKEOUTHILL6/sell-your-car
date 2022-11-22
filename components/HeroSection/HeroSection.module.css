@@ -54,3 +54,46 @@
 .buttonsbuy:hover {
   border: 2px solid black;
 }
+
+.sellcontainer {
+  display: flex;
+  position: absolute;
+  bottom: 25px;
+  left: 220px;
+  width: 520px;
+  height: 340px;
+  background: linear-gradient(
+    45deg,
+    rgb(245, 93, 93),
+    rgb(247, 35, 35),
+    rgb(201, 36, 36)
+  );
+  border-radius: 13px;
+}
+
+.youtubecontainer {
+  display: flex;
+  position: absolute;
+  top: 390px;
+  left: 800px;
+  width: 520px;
+  height: 340px;
+  background-image: url(https://carwow-uk-3.imgix.net/homepage/YoutubePlaceholder.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  border-radius: 12px;
+}
+
+.youtubecontainer::before{
+  content: "";
+  display: block;
+  background: linear-gradient(180deg,rgba(0,0,0,.4) 0%,transparent 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
