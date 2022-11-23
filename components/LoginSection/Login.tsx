@@ -1,83 +1,102 @@
+import { useState } from "react";
 import styles from "../LoginSection/Login.module.css";
 
 const Login = () => {
+  const [clicked, setIsClicked] = useState(true);
+
+  const classHandler = () => {
+    setIsClicked(!clicked);
+  };
+
   return (
-    <div className={styles.container}>
-      <div className="form-container sign-up-container">
-        <form action="#">
-          <h1>Create Account</h1>
-          <div className="social-container">
-            <a href="#" className="social">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="social">
-              <i className="fab fa-google-plus-g"></i>
-            </a>
-            <a href="#" className="social">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
+    <div
+      className={
+        clicked
+          ? `${styles.container}`
+          : `${styles.container} ${styles.rightpanelactive}`
+      }
+    >
+      <div className={`${styles.formcontainer} ${styles.signupcontainer}`}>
+        <form className={styles.form} action="#">
+          <h1 className={styles.h1}>Create Account</h1>
+
+          <div className={styles.infield}>
+            <input className={styles.input} type="text" placeholder="Name" />
+            <label className={styles.label}></label>
           </div>
-          <span>or use your email for registration</span>
-          <div className="infield">
-            <input type="text" placeholder="Name" />
-            <label></label>
+          <div className={styles.infield}>
+            <input
+              className={styles.input}
+              type="email"
+              placeholder="Email"
+              name="email"
+            />
+            <label className={styles.label}></label>
           </div>
-          <div className="infield">
-            <input type="email" placeholder="Email" name="email" />
-            <label></label>
+          <div className={styles.infield}>
+            <input
+              className={styles.input}
+              type="password"
+              placeholder="Password"
+            />
+            <label className={styles.label}></label>
           </div>
-          <div className="infield">
-            <input type="password" placeholder="Password" />
-            <label></label>
-          </div>
-          <button>Sign Up</button>
+          <button className={styles.button}>Sign Up</button>
         </form>
       </div>
-      <div className="form-container sign-in-container">
-        <form action="#">
-          <h1>Sign in</h1>
-          <div className="social-container">
-            <a href="#" className="social">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="social">
-              <i className="fab fa-google-plus-g"></i>
-            </a>
-            <a href="#" className="social">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
+
+      <div className={`${styles.formcontainer} ${styles.signincontainer}`}>
+        <form className={styles.form} action="#">
+          <h1 className={styles.h1}>Log in</h1>
+
+          <div className={styles.infield}>
+            <input
+              className={styles.input}
+              type="email"
+              placeholder="Email"
+              name="email"
+            />
+            <label className={styles.label}></label>
           </div>
-          <span>or use your account</span>
-          <div className="infield">
-            <input type="email" placeholder="Email" name="email" />
-            <label></label>
+          <div className={styles.infield}>
+            <input
+              className={styles.input}
+              type="password"
+              placeholder="Password"
+            />
+            <label className={styles.label}></label>
           </div>
-          <div className="infield">
-            <input type="password" placeholder="Password" />
-            <label></label>
+
+          <div className="flex items-center mt-2">
+            <input className="h-4 w-4 rounded-sm mr-2" type="checkbox" id="rememberMe" />
+            <label className="text-base" htmlFor="rememberMe">Remember me</label>
           </div>
-          <a href="#" className="forgot">
-            Forgot your password?
-          </a>
-          <button>Sign In</button>
+
+          <button className={styles.button}>Sign In</button>
         </form>
       </div>
-      <div className="overlay-container" id="overlayCon">
-        <div className="overlay">
-          <div className="overlay-panel overlay-left">
-            <h1>Welcome Back!</h1>
-            <p>
+
+      <div className={styles.overlaycontainer} id="overlayCon">
+        <div className={styles.overlay}>
+          <div className={`${styles.overlaypanel} ${styles.overlayleft}`}>
+            <h1 className={styles.h1}>Welcome Back!</h1>
+
+            <p className={styles.p}>
               To keep connected with us please login with your personal info
             </p>
-            <button>Sign In</button>
+            <button className={styles.button}>Sign In</button>
           </div>
-          <div className="overlay-panel overlay-right">
-            <h1>Hello, Friend!</h1>
-            <p>Enter your personal details and start journey with us</p>
-            <button>Sign Up</button>
+
+          <div className={`${styles.overlaypanel} ${styles.overlayright}`}>
+            <h1 className={styles.h1}>Don't have an account?</h1>
+
+            <p className={styles.p}>
+              Enter your personal details and start journey with us
+            </p>
+            <button className={styles.button}>Sign Up</button>
           </div>
         </div>
-        <button id="overlayBtn"></button>
+        <button className={styles.overlayBtn} onClick={classHandler}></button>
       </div>
     </div>
   );
