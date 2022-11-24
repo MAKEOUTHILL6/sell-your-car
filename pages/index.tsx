@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Footer from "../components/Footer/Footer";
 import HeroSection from "../components/HeroSection/HeroSection";
 import Navigation from "../components/Navigation/Navigation";
 
@@ -12,6 +13,7 @@ export default function Home() {
       </Head>
       <Navigation />
       <HeroSection />
+      <Footer />
     </>
   );
 }
