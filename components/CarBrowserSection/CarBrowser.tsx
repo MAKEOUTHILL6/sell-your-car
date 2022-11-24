@@ -1,4 +1,4 @@
-import styles from "../Footer/Footer.module.css"
+import styles from "../CarBrowserSection/CarBrowser.module.css";
 import Link from 'next/link';
 
 const Footer = () => {
