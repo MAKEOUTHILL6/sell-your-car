@@ -2,6 +2,7 @@ import Head from "next/head";
 import CarBrowser from "../components/CarBrowserSection/CarBrowser";
 import HeroSection from "../components/HeroSection/HeroSection";
 import Navigation from "../components/Navigation/Navigation";
+import Footer from "../components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <CarBrowser />
+      <Footer />
     </>
   );
 }

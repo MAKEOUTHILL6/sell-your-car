@@ -35,10 +35,12 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  transition: 0.3s ease-in-out;
 }
 
 .buttonssell:hover {
-  border: 2px solid black;
+  background-color: black;
+  color: white;
 }
 
 .buttonsbuy {
@@ -49,16 +51,18 @@
   font-weight: bold;
   display: flex;
   align-items: center;
+  transition: 0.3s ease-in-out;
 }
 
 .buttonsbuy:hover {
-  border: 2px solid black;
+  background-color: black;
+  color: white;
 }
 
 .sellcontainer {
   display: flex;
   position: absolute;
-  bottom: 25px;
+  bottom: -20px;
   left: 220px;
   width: 520px;
   height: 340px;
@@ -74,7 +78,7 @@
 .youtubecontainer {
   display: flex;
   position: absolute;
-  top: 390px;
+  top: 435px;
   left: 800px;
   width: 520px;
   height: 340px;
@@ -86,10 +90,10 @@
   border-radius: 12px;
 }
 
-.youtubecontainer::before{
+.youtubecontainer::before {
   content: "";
   display: block;
-  background: linear-gradient(180deg,rgba(0,0,0,.4) 0%,transparent 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
   position: absolute;
   top: 0;
   left: 0;

@@ -43,21 +43,21 @@ const HeroSection = () => {
         </div>
       </div>
       <div className="w-full h-full bg-white absolute rounded-full top-80 flex ">
-        <article className="bg-slate-100 w-96 h-52 absolute top-28 left-32 rounded-xl">
+        <article className="bg-slate-100 w-96 h-52 absolute top-36 left-32 rounded-xl">
           <div className="flex flex-col text-center items-center">
             <TbFreeRights className="text-5xl mt-11 text-rose-500" />
             <p className="font-bold text-xl mt-2">Free</p>
             <p className="mt-2 ">100% free, no fees, just great prices!</p>
           </div>
         </article>
-        <article className="bg-slate-100 w-96 h-52 absolute top-28 right-37% rounded-xl">
+        <article className="bg-slate-100 w-96 h-52 absolute top-36 right-37% rounded-xl">
           <div className="flex flex-col text-center items-center">
             <VscWorkspaceTrusted className="text-5xl mt-11 text-rose-500" />
             <p className="font-bold text-xl mt-2">Trusted</p>
             <p className="mt-2 ">Over 1000 positive reviews!</p>
           </div>
         </article>
-        <article className="bg-slate-100 w-96 h-52 absolute top-28 right-32 rounded-xl pl-6">
+        <article className="bg-slate-100 w-96 h-52 absolute top-36 right-32 rounded-xl pl-6">
           <div className="flex flex-col text-center items-center">
             <BiWorld className="text-5xl mt-11 text-rose-500" />
             <p className="font-bold text-xl mt-2">Worldwide</p>
