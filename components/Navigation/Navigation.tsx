@@ -1,8 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from '../Navigation/Navigation.module.css';
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react"
 
 const Navigation = () => {
+
+  const {data: session} = useSession();
+
   return (
     <>
       <nav className="flex absolute justify-center items-center top-0 text-base h-20 z-10 w-full">
@@ -15,7 +20,15 @@ const Navigation = () => {
             <li className={styles.item}><Link className={styles.link} href=''>Electric</Link></li>
             <li className={styles.item}><Link className={styles.link} href=''>Leasing</Link></li>
           </ul>
-          <nav className='flex ml-120'><Link className={styles.sign} href='/login'>Login</Link></nav>
+          {session ?
+          <>
+          <nav className='flex ml-120'><Link className={styles.sign} href='/login'>{session.user?.email}</Link></nav>
+            <button className={styles.signout} onClick={() => signOut()}>Sign out</button>
+          </>
+            
+          :
+           <nav className='flex ml-120'><Link className={styles.sign} href='/login'>Login</Link></nav>
+           }
         </div>
       </nav>
     </>

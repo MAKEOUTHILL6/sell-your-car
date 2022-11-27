@@ -1,12 +1,43 @@
 import { useState } from "react";
 import styles from "../LoginAndRegisterSection/Login.module.css";
+import { useFormik } from "formik";
+import loginValidate from "../../lib/validate";
+import Register from "./Register";
+import {signIn} from 'next-auth/react';
+import {useRouter} from 'next/router';
 
 const Login = () => {
   const [clicked, setIsClicked] = useState(true);
 
+  const router = useRouter();
+
   const classHandler = () => {
     setIsClicked(!clicked);
   };
+
+  const onSubmitLogin = async (values: any) => {
+    const status = await signIn('credentials', {
+      redirect: false,
+      email: values.email,
+      password: values.password,
+      callbackUrl: '/'
+    });
+
+    if(status?.ok){
+      router.push('/')
+    }
+
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      rememberMe: false,
+    },
+    validate: loginValidate,
+    onSubmit: onSubmitLogin,
+  });  
 
   return (
     <div
@@ -16,56 +47,28 @@ const Login = () => {
           : `${styles.container} ${styles.rightpanelactive}`
       }
     >
-      <div className={`${styles.formcontainer} ${styles.signupcontainer}`}>
-        <form className={styles.form} action="#">
-          <h1 className={styles.h1}>Create Account</h1>
-          <div className={styles.infield}>
-            <label htmlFor="username" className={styles.label}></label>
-            <input
-              className={styles.input}
-              type="text"
-              placeholder="Username"
-              name="username"
-              id="username"
-            />
-          </div>
-          <div className={styles.infield}>
-            <label htmlFor="password" className={styles.label}></label>
-            <input
-              className={styles.input}
-              type="password"
-              placeholder="Password"
-              name="password"
-              id="password"
-            />
-          </div>
-          <div className={styles.infield}>
-            <label htmlFor="repassword" className={styles.label}></label>
-            <input
-              className={styles.input}
-              type="password"
-              placeholder="Repeat Password"
-              name="repassword"
-              id="repassword"
-            />
-          </div>
-          <button type="submit" className={styles.button}>Sign Up</button>
-        </form>
-      </div>
+  
+      <Register />
 
       <div className={`${styles.formcontainer} ${styles.signincontainer}`}>
-        <form className={styles.form} action="#">
+        <form
+          className={styles.form}
+          action="POST"
+          onSubmit={formik.handleSubmit}
+        >
           <h1 className={styles.h1}>Log in</h1>
 
           <div className={styles.infield}>
-            <label htmlFor="username" className={styles.label}></label>
+            <label htmlFor="email" className={styles.label}></label>
             <input
               className={styles.input}
               type="text"
-              placeholder="Username"
-              name="username"
-              id="username"
+              placeholder="Email"
+              // name="username"
+              id="email"
+              {...formik.getFieldProps("email")}
             />
+            {formik.errors.email && formik.touched.email ? <span className={styles.error}>{formik.errors.email}</span>: <></>}
           </div>
           <div className={styles.infield}>
             <label htmlFor="password" className={styles.label}></label>
@@ -73,23 +76,28 @@ const Login = () => {
               className={styles.input}
               type="password"
               placeholder="Password"
-              name="password"
+              // name="password"
               id="password"
+              {...formik.getFieldProps("password")}
             />
+            {formik.errors.password  && formik.touched.password ? <span className={styles.error}>{formik.errors.password}</span>: <></>}
           </div>
           <div className="flex items-center mt-2">
             <input
               className="h-4 w-4 rounded-sm mr-2"
               type="checkbox"
               id="rememberMe"
-              name="rememberMe"
+              // name="rememberMe"
+              {...formik.getFieldProps("rememberMe")}
             />
             <label className="text-base" htmlFor="rememberMe">
               Remember me
             </label>
           </div>
 
-          <button type="submit" className={styles.button}>Sign In</button>
+          <button type="submit" className={styles.button}>
+            Sign In
+          </button>
         </form>
       </div>
 

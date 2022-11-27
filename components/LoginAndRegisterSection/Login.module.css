@@ -41,6 +41,12 @@
   font-size: 32pt;
 }
 
+.error {
+  color: red;
+  display: flex;
+  justify-content: center;
+}
+
 .span {
   font-size: 12px;
 }

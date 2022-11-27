@@ -30,6 +30,25 @@
   font-weight: bold;
 }
 
+
 .sign:hover {
+  border-bottom: 3px double #fff;
+}
+
+
+.signout {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 110%;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  width: 140px;
+}
+
+.signout:hover {
   border-bottom: 3px double #fff;
 }
